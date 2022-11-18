@@ -14,20 +14,34 @@
 
 项目结构
 
+
+
+```
 gin-mall/
-├── api
-├── cache
-├── conf
-├── dao
-├── doc
-├── middleware
-├── model
-├── pkg
-│  ├── e
-│  └── util
-├── routes
-├── serializer
-└── service
+├─api
+│  └─v1
+├─cache
+├─cmd
+├─conf
+├─dao
+├─logs
+│  └─2022-11-18.log
+├─middleware
+├─model
+├─pkg
+│  ├─e
+│  └─util
+├─routes
+├─serializer
+├─service
+└─static
+    └─imgs
+        └─avatar
+            └─user1
+
+```
+
+
 
 
 
