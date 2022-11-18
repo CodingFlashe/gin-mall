@@ -12,4 +12,8 @@ type Product struct {
 	Price         string
 	DiscountPrice string //折后价
 	OnSale        bool   //商品是否在售
+	Num           int
+	BossId        int
+	BossName      string
+	BossAvatar    string
 }
