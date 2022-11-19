@@ -8,13 +8,13 @@ import (
 	"gin-mall/serializer"
 )
 
-type CarouselService struct {
+type CategoryService struct {
 }
 
-func (service *CarouselService) List(ctx context.Context) serializer.Response {
-	carouselDao := dao.NewCarouselDao(ctx)
+func (service *CategoryService) List(ctx context.Context) serializer.Response {
+	categoryDao := dao.NewCategoryDao(ctx)
 	code := e.Success
-	carousels, err := carouselDao.ListCarousel()
+	category, err := categoryDao.ListCategory()
 	if err != nil {
 		//打印日志
 		util.LogrusObj.Infoln("err", err)
@@ -25,5 +25,5 @@ func (service *CarouselService) List(ctx context.Context) serializer.Response {
 			Error:  err.Error(),
 		}
 	}
-	return serializer.BuildListResponse(serializer.BuildCarousels(carousels), uint(len(carousels)))
+	return serializer.BuildListResponse(serializer.BuildCategories(category), uint(len(category)))
 }

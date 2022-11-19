@@ -19,7 +19,7 @@ func NewCarouselDaoByDB(db *gorm.DB) *CarouselDao {
 	return &CarouselDao{db}
 }
 
-// ListCarousel 根据id获取Carousel
+// ListCarousel 获取所有轮播图
 func (dao *CarouselDao) ListCarousel() (carousel []model.Carousel, err error) {
 	err = dao.DB.Model(&model.Carousel{}).Find(&carousel).Error
 	return

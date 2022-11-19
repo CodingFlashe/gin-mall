@@ -16,4 +16,5 @@ const (
 	ErrorSendEmail             = 30008
 
 	// product 模块错误
+	ErrorProductImgUpload = 40001
 )

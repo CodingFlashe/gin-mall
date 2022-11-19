@@ -18,13 +18,14 @@ func init() {
 	}
 	// 实例化
 	logger := logrus.New()
-	logger.Out = src                   //设置输出
-	logger.SetLevel(logrus.DebugLevel) //设置日志级别
-	logger.SetFormatter(&logrus.TextFormatter{
+	logger.Out = src                           //设置输出
+	logger.SetLevel(logrus.DebugLevel)         //设置日志级别
+	logger.SetFormatter(&logrus.TextFormatter{ //设置写入的日志信息的格式
 		TimestampFormat: "2006-01-02 15:04:05",
 	})
 	LogrusObj = logger
 }
+
 func setOutPutFile() (*os.File, error) {
 	now := time.Now()
 	logFilePath := ""
@@ -42,6 +43,7 @@ func setOutPutFile() (*os.File, error) {
 	}
 	logFileName := now.Format("2006-01-02") + ".log"
 	// 日志文件
+	//获取日志文件夹的完整路径信息，Join函数会根据需要添加斜杠
 	fileName := path.Join(logFilePath, logFileName)
 	_, err = os.Stat(fileName)
 	if os.IsNotExist(err) {

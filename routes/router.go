@@ -23,6 +23,12 @@ func NewRouter() *gin.Engine {
 		//轮播图
 		v1.GET("carousels", api.ListCarousel)
 
+		// 商品操作
+		v1.GET("products", api.ListProduct)     //获取商品列表
+		v1.GET("products/:id", api.ShowProduct) //展示商品信息
+		v1.GET("imgs/:id", api.ListProductImg)  //获取商品图片地址
+		v1.GET("categories", api.ListCategory)  //商品分类
+
 		authed := v1.Group("/") // 需要登陆保护
 		authed.Use(middleware.JWT())
 		{
@@ -36,6 +42,11 @@ func NewRouter() *gin.Engine {
 
 			// 显示金额
 			authed.POST("money", api.ShowMoney)
+
+			// 商品操作
+			authed.POST("product", api.CreateProduct)  //创建商品
+			authed.POST("products", api.SearchProduct) //搜索商品
+
 		}
 	}
 	return r

@@ -204,7 +204,7 @@ func (service *UserService) Post(ctx context.Context, uId uint, file multipart.F
 	}
 }
 
-// Send 发送邮箱
+// Send 发送邮件
 func (service *SendEmailService) Send(ctx context.Context, uId uint) serializer.Response {
 	code := e.Success
 	var address string
@@ -236,6 +236,7 @@ func (service *SendEmailService) Send(ctx context.Context, uId uint) serializer.
 	m.SetHeader("To", service.Email)
 	m.SetHeader("Subject", "Flash")
 	m.SetBody("text/html", mailText)
+	//d可以理解成执行发送操作的结构体
 	d := mail.NewDialer(conf.SmtpHost, 465, conf.SmtpEmail, conf.SmtpPass)
 	d.StartTLSPolicy = mail.MandatoryStartTLS
 	if err = d.DialAndSend(m); err != nil {
