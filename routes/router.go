@@ -47,6 +47,24 @@ func NewRouter() *gin.Engine {
 			authed.POST("product", api.CreateProduct)  //创建商品
 			authed.POST("products", api.SearchProduct) //搜索商品
 
+			// 收藏夹操作
+			authed.GET("favorites", api.ListFavorite)          //展示内容
+			authed.POST("favorites", api.CreateFavorite)       //创建内容
+			authed.DELETE("favorites/:id", api.DeleteFavorite) //删除内容
+
+			//地址操作
+			authed.POST("addresses", api.CreateAddress)
+			authed.GET("addresses/:id", api.ShowAddress) //获取详细地址,这里是获取表中的第几个id
+			authed.GET("addresses", api.ListAddress)     //获取地址列表,这里是获取某一个用户的所有id
+			authed.PUT("addresses/:id", api.UpdateAddress)
+			authed.DELETE("addresses/:id", api.DeleteAddress)
+
+			//订单操作
+			authed.POST("carts", api.CreateCart)
+			authed.GET("carts", api.ListCart) //获取某个订单
+			authed.PUT("carts/:id", api.UpdateCart)
+			authed.DELETE("carts/:id", api.DeleteCart)
+
 		}
 	}
 	return r

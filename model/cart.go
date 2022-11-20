@@ -10,5 +10,5 @@ type Cart struct {
 	BossId    uint `gorm:"not null"` //商家
 	Num       uint `gorm:"not null"` //数量
 	MaxNum    uint `gorm:"not null"` //商品数量限额
-	check     bool //检查是否支付
+	Check     bool //检查是否支付
 }

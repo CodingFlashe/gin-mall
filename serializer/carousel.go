@@ -6,7 +6,7 @@ type Carousel struct {
 	Id        uint   `json:"id"`
 	ImgPath   string `json:"img_path"`
 	ProductId uint   `json:"product_id"`
-	CreateAt  int64  `json:"create_at"`
+	CreatedAt int64  `json:"created_at"`
 }
 
 func BuildCarousel(item *model.Carousel) Carousel {
@@ -14,7 +14,7 @@ func BuildCarousel(item *model.Carousel) Carousel {
 		Id:        item.ID,
 		ImgPath:   item.ImgPath,
 		ProductId: item.ProductId,
-		CreateAt:  item.CreatedAt.Unix(),
+		CreatedAt: item.CreatedAt.Unix(),
 	}
 }
 
