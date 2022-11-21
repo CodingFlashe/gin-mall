@@ -20,7 +20,7 @@ func (dao *AddressDao) CreateAddress(in *model.Address) error {
 }
 
 func (dao *AddressDao) GetAddressByAid(aId uint) (address *model.Address, err error) {
-	err = dao.DB.Model(&model.Address{}).Where("id=?", aId).Find(&address).Error
+	err = dao.DB.Model(&model.Address{}).Where("id=?", aId).First(&address).Error
 	return
 }
 

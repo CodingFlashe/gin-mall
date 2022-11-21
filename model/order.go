@@ -11,7 +11,7 @@ type Order struct {
 	BossId    uint `gorm:"not null"`
 	AddressId uint `gorm:"not null"`
 	Num       int
-	OrderNum  float64
+	OrderNum  uint64
 	Type      uint // 1未支付 2已支付
 	Money     float64
 }
